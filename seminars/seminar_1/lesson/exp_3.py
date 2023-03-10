@@ -14,6 +14,4 @@ import math
 
 numbers=int(input('Введите количество классов: '))
 array=[int(input(f'Введите количество учеников {x} класса: ')) for x in range(1,numbers+1)]
-# print(array)
-
-print(math.ceil(for x in array))
+print(sum([math.ceil(x/2) for x in array]))
