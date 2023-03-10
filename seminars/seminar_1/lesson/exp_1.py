@@ -13,5 +13,5 @@ Output: 2
 import math
 
 n = 700
-m = 750
-print(math.ceil(m/n))
+m = 1
+print('Необходимо', math.ceil(m/n), 'дн(-я/-ей)')
