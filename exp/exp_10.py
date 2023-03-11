@@ -6,9 +6,11 @@
 
 
 def array_fibo(n):
+    temp=0
     array=[1,1]
-    for k in range(2,n+1):
-        array.append(k)
+    for k in range(1,n-1):
+        temp=array[k]+array[k-1]
+        array.append(temp)
     return array
 
 

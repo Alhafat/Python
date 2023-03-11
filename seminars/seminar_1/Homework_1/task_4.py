@@ -12,8 +12,6 @@ print('\n\tЗадача 4: Петя, Катя и Сережа делают из 
       'если известно, что Петя и Сережа сделали одинаковое количество журавликов, ',
       'а Катя сделала в два раза больше журавликов, чем Петя и Сережа вместе?', sep='\n\t', end='\n\n')
 
-number = int(input('Введите число: '))
-
 # # Вариант 1
 # x = 0
 # while 6 * x != number:
@@ -23,9 +21,24 @@ number = int(input('Введите число: '))
 # print('Катя сделал ', 4 * x)
 
 # Вариант 2
-for x in range(1,number+1):
-    if 6*x==number:
-        print('Петя сделал ', x)
-        print('Сирожа сделал ', x)
-        print('Катя сделал ', 4 * x)
-        break
+# for x in range(1,number+1):
+#     if 6*x==number:
+#         print('Петя сделал ', x)
+#         print('Сирожа сделал ', x)
+#         print('Катя сделал ', 4 * x)
+#         break
+
+# Вариант 3
+def get_quantity(number):
+    x=int(number/6)
+    print('Петя сделал ', x)
+    print('Сирожа сделал ', x)
+    print('Катя сделал ', 4 * x)
+
+
+def main():
+    number = int(input('Введите число: '))
+    get_quantity(number)
+
+
+main()

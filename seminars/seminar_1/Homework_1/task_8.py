@@ -10,5 +10,5 @@ n = int(input('Введите количество долек по длине: '
 m = int(input('Введите количество долек по ширине: '))
 k = int(input('Введите количество долек к отлому: '))
 
-condition = (k % n == 0 or k % m == 0)
+condition = (k % n == 0 or k % m == 0) and n>k<m
 print('Отломить можно') if condition else print('Отломить нельзя')
