@@ -22,8 +22,7 @@ import random
 
 
 def get_list(n):
-    array = [random.randint(-50, 50 + 1) for _ in range(n)]
-    # array = [-1, 2, 3, 4, 5]
+    array = [random.randint(-50, 50) for _ in range(n)]
     return array
 
 
@@ -35,8 +34,8 @@ def find_days_above_zero(days):
             count += 1
         else:
             count = 0
-        array.append(count)
-    return max(array)
+    array.append(count)
+    return array
 
 
 def main():
@@ -44,7 +43,7 @@ def main():
     days = get_list(n)
     print(days)
     result = find_days_above_zero(days)
-    print(f'Максимальная продолжительность оттепели составила {result} суток')
+    print(f'Максимальная продолжительность оттепели составила {max(result)} суток')
 
 
 main()

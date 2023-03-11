@@ -8,9 +8,8 @@
 def array_fibo(n):
     temp=0
     array=[1,1]
-    for k in range(1,n-1):
-        temp=array[k]+array[k-1]
-        array.append(temp)
+    for k in range(n-2):
+        array.append(array[-1]+array[-2])
     return array
 
 

@@ -10,28 +10,16 @@ Output: 6
 
 
 def array_fibo(n):
-    array = [0, 1]
-    for k in range(1, n + 1):
-        temp = array[k] + array[k - 1]
-        array.append(temp)
-    return array
-
-
-def find_number(result, n):
-    count = 1
-    for number in result:
-        if number == n:
-            print(f'Введенное число {n} в последовательности расположено под номером {count}')
-            return
-        count += 1
-    else: print("-1")
+    array = [0,1]
+    while n>array[-1]:
+        array.append(array[-1] + array[-2])
+    true=f'Введенное число {n} в последовательности расположено под номером {len(array)}'
+    print(true) if array[-1]==n else print("-1")
 
 
 def main():
-    n = int(input('Введите количество чисел последовательности: '))
-    result = array_fibo(n)
-    print(result)
-    find_number(result, n)
+    n = int(input('Введите число для поиска в последовательности: '))
+    array_fibo(n)
 
 
 main()
