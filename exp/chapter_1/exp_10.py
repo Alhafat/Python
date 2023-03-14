@@ -4,18 +4,17 @@
 (т.е. 1,1,2,3,5,8,13,21,34,55 и т.д.). Количество чисел в последовательности ввести с клавиатуры.
 """
 
-
-def array_fibo(n):
-    temp=0
-    array=[1,1]
-    for k in range(n-2):
-        array.append(array[-1]+array[-2])
-    return array
-
-
-def main():
-    n=int(input('Введите количество чисел последовательности: '))
-    result=array_fibo(n)
-    print(result)
-
-main()
+# def array_fibo(n):
+#     temp=0
+#     array=[1,1]
+#     for k in range(n-2):
+#         array.append(array[-1]+array[-2])
+#     return array
+#
+#
+# def main():
+#     n=int(input('Введите количество чисел последовательности: '))
+#     result=array_fibo(n)
+#     print(result)
+#
+# main()
