@@ -6,22 +6,21 @@ n!=1*2*3...*n. Число для которого вычисляется фак�
 (используйте условный оператор)
 """
 
-
-def get_factorial_for_number(number):
-    if number >= 1:
-        f = 1
-        for k in range(2, number + 1):
-            f *= k
-        print(f'Факториал числа {number} равен {f}')
-    elif number == 0:
-        print(f'Факториал числа {number} равен 1')
-    else:
-        print('Введите положительное число!')
-
-
-def main():
-    number = int(input('Введи число для вычисления факториала: '))
-    get_factorial_for_number(number)
-
-
-main()
+# def get_factorial_for_number(number):
+#     if number >= 1:
+#         f = 1
+#         for k in range(2, number + 1):
+#             f *= k
+#         print(f'Факториал числа {number} равен {f}')
+#     elif number == 0:
+#         print(f'Факториал числа {number} равен 1')
+#     else:
+#         print('Введите положительное число!')
+#
+#
+# def main():
+#     number = int(input('Введи число для вычисления факториала: '))
+#     get_factorial_for_number(number)
+#
+#
+# main()

@@ -32,9 +32,9 @@ def find_days_above_zero(days):
     for temp in days:
         if temp > 0:
             count += 1
+            array.append(count)
         else:
             count = 0
-    array.append(count)
     return array
 
 
