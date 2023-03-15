@@ -11,8 +11,6 @@ def show_number_in_number():
     temp = [0]*10
     for k in number:
         temp[int(k)]+=1
-        # print(f'В веденном числе {number} цифра {n} содержится {count} раз')
-        # count=0
     text='\n'.join(f'{x[0]}--->{x[1]}' for x in enumerate(temp,0) if x[1]!=0)
     print(text)
 
