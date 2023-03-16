@@ -9,6 +9,7 @@ Output: [4, 5, 1, 2, 3]
 Примечание: Пользователь может вводить значения
 списка или список задан изначально.
 """
+
 import random
 
 
@@ -21,8 +22,8 @@ def get_list():
 def get_new_list(numbers, n):
     # [numbers.append(numbers[i.__index__()]) for i in range(n) ]
     # del numbers[:n]
-    numbers.extend(numbers[:n])
-    del numbers[:n]
+    numbers.extend(numbers[:n+1])
+    del numbers[:n+1]
     print(numbers)
 
 
