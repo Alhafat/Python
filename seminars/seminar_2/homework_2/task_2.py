@@ -10,6 +10,7 @@
 import random
 import math
 
+
 def get_unknown_numbers():
     array = [random.randint(1, 1000) for _ in range(2)]
     # print(array)
@@ -17,17 +18,20 @@ def get_unknown_numbers():
     # print(array_2)
     return array_2
 
+
 def get_numbers(numbers):
     x = 0
-    while x*(numbers[0] - x) < numbers[1]:
+    while x * (numbers[0] - x) < numbers[1]:
         x += 1
     y = numbers[0] - x
     print(f'Числа загаданные Петей {x} и {y}')
 
+
 def main():
-    numbers=get_unknown_numbers()
+    numbers = get_unknown_numbers()
     print('Сумма', numbers[0])
     print('Произведение', numbers[1])
     get_numbers(numbers)
+
 
 main()
