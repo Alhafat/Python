@@ -11,16 +11,17 @@ import random
 import math
 
 
+
+
 def get_unknown_numbers():
     array = [random.randint(1, 1000) for _ in range(2)]
     # print(array)
     array_2 = [sum(array), math.prod(array)]
-    # print(array_2)
     return array_2
 
 
 def get_numbers(numbers):
-    x = 0
+    x = 1
     while x * (numbers[0] - x) < numbers[1]:
         x += 1
     y = numbers[0] - x
@@ -34,4 +35,5 @@ def main():
     get_numbers(numbers)
 
 
-main()
+if __name__ == '__main__':
+    main()
