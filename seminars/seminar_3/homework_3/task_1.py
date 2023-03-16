@@ -8,24 +8,25 @@
 3
 -> 1
 """
-
+#
 import random
 
 
 def get_list(x):
     n = int(input('введите длину списка: '))
     numbers = [random.randint(1, n) for _ in range(n)]
-    print(numbers)
+    # print(numbers)
     get_value(numbers, x)
 
 
 def get_value(numbers, x):
-    print(f'В списке {numbers} элемент {x} не встречается') if numbers.count(x)==0 \
-        else print(f'В списке {numbers} элемент {x} встречается {numbers.count(x)} раз')
+    value_positive = f'В списке {numbers} элемент {x} встречается {numbers.count(x)} раз'
+    value_negative = f'В списке {numbers} элемент {x} не встречается'
+    print('\n'+value_negative) if numbers.count(x) == 0 else print('\n'+value_positive)
 
 
 def main():
-    x=int(input('Введите искомое число: '))
+    x = int(input('Введите искомое число: '))
     get_list(x)
 
 
