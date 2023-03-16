@@ -22,7 +22,7 @@ def get_list(x):
 def get_value(numbers, x):
     value_positive = f'В списке {numbers} элемент {x} встречается {numbers.count(x)} раз'
     value_negative = f'В списке {numbers} элемент {x} не встречается'
-    print('\n'+value_negative) if numbers.count(x) == 0 else print('\n'+value_positive)
+    print('\n' + value_negative) if numbers.count(x) == 0 else print('\n' + value_positive)
 
 
 def main():
