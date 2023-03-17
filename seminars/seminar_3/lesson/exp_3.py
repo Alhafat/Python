@@ -10,10 +10,10 @@ Output: {'S005', 'S002', 'S007', 'S001', 'S009'}
 
 
 def get_result(dictionary):
-    result = list()
+    result = []
     for i in dictionary:
         [result.append(values) for keys, values in i.items()]
-    result = set(result)
+        result = set(result)
     print(result)
 
 
