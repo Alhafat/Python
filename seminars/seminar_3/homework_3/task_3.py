@@ -36,7 +36,8 @@ def get_en_points():
         '8': 'J' 'X',
         '10': 'Q' 'Z'
     }
-    print(dictionary_en)
+    # print(dictionary_en)
+
     temp=0
     text=input('Enter the text: ')
     print('The resulting value:', text)
@@ -61,7 +62,7 @@ def get_ru_points():
         '8': 'Ш' 'Э' 'Ю',
         '10': 'Ф' 'Щ' 'Ъ'
     }
-    print(dictionary_ru)
+    # print(dictionary_ru)
 
     temp = 0
     text = input('Enter the text: ')
