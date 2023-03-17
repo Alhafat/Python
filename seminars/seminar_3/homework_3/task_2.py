@@ -20,7 +20,7 @@ def get_list():
 
 
 def get_value(result, x):
-    text_result = f'Самым близким по величине элемент к заданному числу {x} является'
+    text_result = f'Самым близким по величине элемент к заданному числу {x} является '
     if x > result[-1]:
         print(text_result, result[-1])
         return
