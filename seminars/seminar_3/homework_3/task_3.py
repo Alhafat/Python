@@ -36,7 +36,7 @@ def get_en_points():
         '8': 'J' 'X',
         '10': 'Q' 'Z'
     }
-    # print(dictionary_en)
+    # print(dictionary_en['1'])
 
     temp=0
     text=input('Enter the text: ')
@@ -65,13 +65,13 @@ def get_ru_points():
     # print(dictionary_ru)
 
     temp = 0
-    text = input('Enter the text: ')
+    text = input('Введите текст: ')
     print('Полученное значение: ', text)
     text = text.upper()
     array = [i for i in text]
     for i in array:
         for keys, value in dictionary_ru.items():
-            for k in value:
+           for k in value:
                 if i == k:
                     temp += eval(keys)
                     continue

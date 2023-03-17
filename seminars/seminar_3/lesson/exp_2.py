@@ -22,6 +22,7 @@ def get_list():
 def get_new_list(numbers, n):
     # [numbers.append(numbers[i.__index__()]) for i in range(n) ]
     # del numbers[:n]
+    n=n%len(numbers)
     numbers.extend(numbers[:n+1])
     del numbers[:n+1]
     print(numbers)

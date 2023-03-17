@@ -19,11 +19,13 @@ def get_list():
 
 
 def get_value(numbers):
-    count = 0
-    for index in range(1, len(numbers)):
-        if numbers[index] > numbers[index - 1]:
-            count += 1
+    count=sum([1 for index in range(1, len(numbers)) if numbers[index] > numbers[index - 1]])
+    # count=0
+    # for index in range(1, len(numbers)):
+    #     if numbers[index] > numbers[index - 1]:
+    #         count += 1
     print(f'Количество элементов массива {numbers}, больших предыдущего элемента составляет {count}')
+
 
 def main():
     numbers=get_list()

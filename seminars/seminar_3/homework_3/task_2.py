@@ -9,12 +9,12 @@
 -> 5
 """
 
-import random
+from random import randint
 
 
 def get_list():
     n = int(input('введите длину списка: '))
-    numbers = sorted([random.randint(1, 1000) for _ in range(n)])
+    numbers = sorted([randint(1, 1000) for _ in range(n)])
     print(numbers)
     return numbers
 
@@ -28,7 +28,7 @@ def get_value(result, x):
         print(text_result, result[0])
         return
     else:
-        for i in range(len(result))[::-1]:
+        for i in range(len(result))[-2::-1]:
             if x==result[i]:
                 print(text_result, result[i])
                 return

@@ -12,23 +12,24 @@
 import random
 
 
-def get_list(x):
+def get_list():
     n = int(input('введите длину списка: '))
     numbers = [random.randint(1, n) for _ in range(n)]
-    # print(numbers)
-    get_value(numbers, x)
+    return numbers
 
 
 def get_value(numbers, x):
-    value_positive = f'В списке {numbers} элемент {x} встречается {numbers.count(x)} раз'
-    value_negative = f'В списке {numbers} элемент {x} не встречается'
-    print('\n' + value_negative) if numbers.count(x) == 0 else print('\n' + value_positive)
+    value = f'встречается {numbers.count(x)} раз' if numbers.count(x) == 0 else f'не встречается'
+    print('\n' + f'В списке {numbers} элемент {x} ' + value)
 
 
 def main():
     x = int(input('Введите искомое число: '))
-    get_list(x)
+    get_value(get_list(), x)
 
 
 if __name__ == '__main__':
     main()
+
+
+
