@@ -8,23 +8,29 @@
 """
 
 
-value_1=input('Введите первую строку для проверки: ')
-value_2=input('Введите вторую строку для проверки: ')
+def get_list_value(val_1, val_2):
+    value_1 = sorted([e.lower() for e in val_1 if e.isalnum()])
+    value_2 = sorted([e.lower() for e in val_2 if e.isalnum()])
+    return value_1, value_2
 
 
-value_1=sorted(e.lower() for e in value_1 if e.isalnum())
-value_2=sorted(e.lower() for e in value_2 if e.isalnum())
+def lists_comparison(value_1, value_2):
+    if len(value_1) == len(value_2):
+        for i in range(len(value_1)):
+            if value_1[i] == value_2[i]:
+                continue
+            else:
+                print('Строки не являются анаграммами.')
+                return
+        print('Строки являются анаграммами.')
 
 
-if len(value_1)!=len(value_2):
-    print('Строки не являются анаграммами.')
-else:
-    dict_1=dict((key,0) for key in set(value_1))
-    dict_2=dict((key,0) for key in set(value_2))
-    dict_1 = dict()
+def main():
+    value_1 = input('Введите первую строку для проверки: ')
+    value_2 = input('Введите вторую строку для проверки: ')
+    value_1, value_2 = get_list_value(value_1, value_2)
+    lists_comparison(value_1, value_2)
 
-    [i for i in value_1 if i==eval(key)]
 
-    print(dict_1)
-    # print(dict_2)
-    dict()
+if __name__ == '__main__':
+    main()
