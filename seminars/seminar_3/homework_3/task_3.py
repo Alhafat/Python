@@ -41,8 +41,7 @@ def get_en_points():
     text = input('Enter the text: ')
     print('The resulting value:', text)
     text = text.upper()
-    array = [i for i in text]
-    for i in array:
+    for i in text:
         temp += [keys for keys, value in dictionary_en.items() if i in value]
     print(f'Вы набрали {sum(temp)} очков')
 
@@ -62,8 +61,7 @@ def get_ru_points():
     text = input('Введите текст: ')
     print('Полученное значение: ', text)
     text = text.upper()
-    array = [i for i in text]
-    for i in array:
+    for i in text:
         temp += [keys for keys, value in dictionary_ru.items() if i in value]
     print(f'Вы набрали {sum(temp)} очков')
 
