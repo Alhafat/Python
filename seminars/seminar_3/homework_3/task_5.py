@@ -12,5 +12,16 @@ challenge=17&course=python&lesson=2
 # print(({'course': 'python', 'lesson': 2, 'challenge': 17}))
 
 
-value[0]+='=valuses'
-print('&'.join(i for i for value))
+def print_dict(values):
+    text=sorted([f'{key}={value}' for key,value in values.items()])
+    text='&'.join(text)
+    print(text)
+
+
+def main():
+    dictionary={'course': 'python', 'lesson': 2, 'challenge': 17}
+    print_dict(dictionary)
+
+if __name__ == '__main__':
+    main()
+

@@ -8,28 +8,29 @@
 """
 
 
-def get_list_value(val_1, val_2):
-    value_1 = sorted([e.lower() for e in val_1 if e.isalnum()])
-    value_2 = sorted([e.lower() for e in val_2 if e.isalnum()])
-    return value_1, value_2
+def get_list_value(val):
+    value = sorted([e.lower() for e in val if e.isalnum()])
+    return value
 
 
-def lists_comparison(value_1, value_2):
-    if len(value_1) == len(value_2):
-        for i in range(len(value_1)):
-            if value_1[i] == value_2[i]:
-                continue
-            else:
-                print('Строки не являются анаграммами.')
-                return
-        print('Строки являются анаграммами.')
+def lists_comparison(val_1, val_2):
+    check = len(val_1) == len(val_2)
+    if check:
+        for i in range(len(val_1)):
+            if val_1[i] != val_2[i]:
+                check = not check
+                break
+    return check
 
 
 def main():
     value_1 = input('Введите первую строку для проверки: ')
     value_2 = input('Введите вторую строку для проверки: ')
-    value_1, value_2 = get_list_value(value_1, value_2)
+    value_list_sorted_1 = get_list_value(value_1)
+    value_list_sorted_2 = get_list_value(value_2)
     lists_comparison(value_1, value_2)
+    is_anagram = lists_comparison(value_1, value_2)
+    print(f'Строка {"" if is_anagram else "не "}является анаграммой')
 
 
 if __name__ == '__main__':
