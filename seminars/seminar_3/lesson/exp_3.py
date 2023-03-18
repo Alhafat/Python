@@ -23,6 +23,6 @@ def main():
         {"VIII": "S007"}]
     get_result(dictionary)
 
-
+print()
 if __name__ == '__main__':
     main()
