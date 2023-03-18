@@ -37,13 +37,13 @@ def get_en_points():
         10: 'Q' 'Z'
     }
 
-    temp=[]
-    text=input('Enter the text: ')
+    temp = []
+    text = input('Enter the text: ')
     print('The resulting value:', text)
-    text=text.upper()
+    text = text.upper()
     array = [i for i in text]
     for i in array:
-        temp+=[keys for keys, value in dictionary_en.items() if i in value]
+        temp += [keys for keys, value in dictionary_en.items() if i in value]
     print(f'Вы набрали {sum(temp)} очков')
 
 
@@ -64,20 +64,21 @@ def get_ru_points():
     text = text.upper()
     array = [i for i in text]
     for i in array:
-        temp+=[keys for keys, value in dictionary_ru.items() if i in value]
+        temp += [keys for keys, value in dictionary_ru.items() if i in value]
     print(f'Вы набрали {sum(temp)} очков')
 
 
 def checking_the_input(language):
-        language_ru = 'русский'
-        language_en = 'english'
-        if language.lower() == language_ru:
-            get_ru_points()
-        elif language.lower() == language_en:
-            get_en_points()
-        else:
-            print('Введено неверное значение!')
-            print('Invalid value entered!')
+    language_ru = 'русский'
+    language_en = 'english'
+    if language.lower() == language_ru:
+        get_ru_points()
+    elif language.lower() == language_en:
+        get_en_points()
+    else:
+        print('Введено неверное значение!')
+        print('Invalid value entered!')
+
 
 def main():
     language = input('Введите язык словаря (Enter the dictionary language): ')
