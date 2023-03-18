@@ -28,7 +28,7 @@ def main():
     value_2 = input('Введите вторую строку для проверки: ')
     value_list_sorted_1 = get_list_value(value_1)
     value_list_sorted_2 = get_list_value(value_2)
-    lists_comparison(value_1, value_2)
+    lists_comparison(value_list_sorted_1, value_list_sorted_2)
     is_anagram = lists_comparison(value_1, value_2)
     print(f'Строка {"" if is_anagram else "не "}является анаграммой')
 
