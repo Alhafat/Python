@@ -12,7 +12,7 @@ Output: {'S005', 'S002', 'S007', 'S001', 'S009'}
 def get_result(dictionary):
     result = set()
     for i in dictionary:
-        [result.add(values) for keys, values in i.items()]
+        [result.add(values) for values in i.values()]
     print(result)
 
 
