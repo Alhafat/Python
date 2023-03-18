@@ -36,7 +36,6 @@ def get_en_points():
         8: 'J' 'X',
         10: 'Q' 'Z'
     }
-    # print(dictionary_en['1'])
 
     temp=[]
     text=input('Enter the text: ')
@@ -58,7 +57,6 @@ def get_ru_points():
         8: 'Ш' 'Э' 'Ю',
         10: 'Ф' 'Щ' 'Ъ'
     }
-    # print(dictionary_ru)
 
     temp = []
     text = input('Введите текст: ')
