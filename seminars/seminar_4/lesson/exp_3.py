@@ -36,7 +36,7 @@ from random import randint
 
 
 def get_list(n):
-    numbers = [randint(1, 100) for _ in range(n)]
+    numbers = [(randint(1, 100)) for _ in range(n)]
     print(numbers)
     return numbers
 
@@ -44,22 +44,36 @@ def get_list(n):
 def get_max_number(numbers):
     array = numbers.copy()
     count = 0
-    n = -1
-    while n != 0:
-        if array[count] > 0:
-            n = array[count] % 10
-            array[count] = array[count] // 10
-        elif count < len(numbers) - 1:
-            count += 1
-        else:
+    # n = -1
+    # while n != 0:
+    #     if array[count] > 0:
+    #         n = array[count] % 10
+    #         array[count] = array[count] // 10
+    #     elif count < len(numbers) - 1:
+    #         count += 1
+    #     else:
+    #         break
+
+    # if count == 0 and n == 0:
+    #     print(f'Элемент последовательности включающей 0 расположен первым ---> {numbers[0]}')
+    # elif len(numbers) > count > 0 == n:
+    #     print(f'Значение наибольшего элемента последовательности, '
+    #           f'которая завершается первым встретившимся нулем равно {max(numbers[:count])}')
+    # else:
+    #     print('Некорректная последовательность, значение 0 отсутствует')
+
+    while count<len(numbers):
+        if '0' in str(numbers[count]):
             break
-    if count == 0 and n == 0:
+        else:
+            count+=1
+    if count == 0:
         print(f'Элемент последовательности включающей 0 расположен первым ---> {numbers[0]}')
-    elif len(numbers) > count > 0 == n:
+    elif count==len(numbers):
+        print('Некорректная последовательность, значение 0 отсутствует')
+    else:
         print(f'Значение наибольшего элемента последовательности, '
               f'которая завершается первым встретившимся нулем равно {max(numbers[:count])}')
-    else:
-        print('Некорректная последовательность, значение 0 отсутствует')
 
 
 def main():
