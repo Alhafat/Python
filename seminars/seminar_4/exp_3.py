@@ -36,15 +36,15 @@ from random import randint
 
 
 def get_list(n):
-    numbers = [randint(1111, 10000) for _ in range(n)]
+    numbers = [randint(1, 100) for _ in range(n)]
     print(numbers)
     return numbers
 
 
 def get_max_number(numbers):
-    array=numbers.copy()
+    array = numbers.copy()
     count = 0
-    n=-1
+    n = -1
     while n != 0:
         if array[count] > 0:
             n = array[count] % 10
@@ -53,18 +53,18 @@ def get_max_number(numbers):
             count += 1
         else:
             break
-    if count==0 and n==0:
+    if count == 0 and n == 0:
         print(f'Элемент последовательности включающей 0 расположен первым ---> {numbers[0]}')
-    elif 0<count<len(numbers) and n==0:
+    elif len(numbers) > count > 0 == n:
         print(f'Значение наибольшего элемента последовательности, '
-            f'которая завершается первым встретившимся нулем равно {max(numbers[:count])}')
+              f'которая завершается первым встретившимся нулем равно {max(numbers[:count])}')
     else:
         print('Некорректная последовательность, значение 0 отсутствует')
 
 
 def main():
     n = int(input('Введите длину последовательности: '))
-    if n==0:
+    if n == 0:
         print('Пустая последовательность.')
         return
     numbers = get_list(n)
