@@ -45,15 +45,6 @@ def get_max_number(numbers):
     array=numbers.copy()
     count = 0
     n=-1
-    # while n!=0:
-    #     if temp>0:
-    #         n=temp%10
-    #         temp=array[count]=array[count]//10
-    #     elif count<len(numbers)-1:
-    #         count += 1
-    #         temp=array[count]
-    #     else:
-    #         break
     while n != 0:
         if array[count] > 0:
             n = array[count] % 10
