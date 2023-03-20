@@ -11,10 +11,11 @@
 """
 
 numbers_1 = sorted(set(input('Введите вторую последовательность: ').split()))
-print(numbers_1)
+# print(numbers_1)
 
 numbers_2 = sorted(set(input('Введите вторую последовательность: ').split()))
-print(numbers_2)
+# print(numbers_2)
 
-result = [i for i in numbers_1 if i in numbers_2]
-print(*result)
+# result = [int(i) for i in numbers_1 if i in numbers_2]
+result = [int(i) for i in numbers_1 if i in numbers_2]
+print(*sorted(result))
