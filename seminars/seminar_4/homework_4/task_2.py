@@ -24,14 +24,13 @@ def get_garden_bed(n):
     return garden_bed
 
 def get_berries(garden_bed):
-    if len(garden_bed)<4:
+    if len(garden_bed)<3:
         print(sum(garden_bed))
     else:
         result=[]
         garden_bed+=garden_bed[:2]      #замыкаем грядку в круг
         # print(garden_bed)
-        for i in range(len(garden_bed)):
-            result.append(sum(garden_bed[i-1:i+2]))
+        [result.append(sum(garden_bed[i-1:i+2])) for i in range(len(garden_bed))]
         # print(result)
         print(max(result))
 
