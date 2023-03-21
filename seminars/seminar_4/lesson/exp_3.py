@@ -62,14 +62,14 @@ def get_max_number(numbers):
     # else:
     #     print('Некорректная последовательность, значение 0 отсутствует')
 
-    while count<len(numbers):
+    while count < len(numbers):
         if '0' in str(numbers[count]):
             break
         else:
-            count+=1
+            count += 1
     if count == 0:
         print(f'Элемент последовательности включающей 0 расположен первым ---> {numbers[0]}')
-    elif count==len(numbers):
+    elif count == len(numbers):
         print('Некорректная последовательность, значение 0 отсутствует')
     else:
         print(f'Значение наибольшего элемента последовательности, '
@@ -77,8 +77,8 @@ def get_max_number(numbers):
     #
     # [print(max(numbers[:i])) for i in range(len(numbers)) if numbers[i]==0]
     # for i in range(len(numbers)):
-        # if numbers[i]==0:
-        #     print(max(numbers[:i]))
+    # if numbers[i]==0:
+    #     print(max(numbers[:i]))
 
 
 def main():
