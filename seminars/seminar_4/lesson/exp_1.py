@@ -13,5 +13,5 @@ print(text)
 for i in range(len(text))[::-1]:
     count = text[:i].count(text[i])
     if count > 0:
-        text[i] +=  + '_' + str(count)
+        text[i] += + '_' + str(count)
 print(text)
