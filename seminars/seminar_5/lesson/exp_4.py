@@ -26,6 +26,8 @@ def main():
     n = int(input('Введите длину последовательности: '))
     source_numbers = get_source_numbers(n)
     print(' '.join(source_numbers))
+    # result=' '.join(source_numbers[::-1])
+    # print(result)
     print(' '.join(get_reverse_numbers(n, source_numbers)))
 
 
