@@ -15,7 +15,7 @@
 
 from random import randint
 
-n=int(input())
+n=int(input('Введите размерность списка: '))
 numbers=[randint(0,n) for _ in range(n)]
 print(numbers)
 count=0
