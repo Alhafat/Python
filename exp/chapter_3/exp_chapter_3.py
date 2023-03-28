@@ -66,3 +66,8 @@ from random import *
 # print('b: ', b)
 # print('c: ', c)
 # print('d: ', d)
+
+# min = 2
+# max = 7
+# numbers = [1, 3, 2, 5, 2, 1, 7, 2, 3]
+# [print(i, end=' ') for i in range(len(numbers)) if min <= numbers[i] <= max]
