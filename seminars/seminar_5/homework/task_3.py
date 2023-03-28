@@ -16,13 +16,17 @@
 """
 
 
-def get_numbers(numbers=(1,1,)):
-    number=int(input('введите любое число: '))
-    if number==0:
-        print(f'Второе по величине максимальное значение из введенных {max(numbers[:numbers.index(max(numbers))])}')
+def get_numbers(numbers=None):
+    if numbers is None:
+        numbers=(int(input('введите любое число: ')),)
+    number = int(input('введите любое число: '))
+    if number == 0:
+        numbers=numbers[:numbers.index(max(numbers))]+numbers[numbers.index(max(numbers))+1:]
+        # print(numbers)
+        print(f'Второе по величине максимальное значение из введенных {max(numbers)}')
         return
     else:
-        numbers+=(number,)
+        numbers += (number,)
         print(numbers)
     return get_numbers(numbers)
 
