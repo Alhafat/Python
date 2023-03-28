@@ -14,3 +14,22 @@
 
 1 2 3 4 5 6 3 1 2 5 3 -> 5
 """
+
+
+def get_numbers(numbers=(1,1,)):
+    number=int(input('введите любое число: '))
+    if number==0:
+        print(f'Второе по величине максимальное значение из введенных {max(numbers[:numbers.index(max(numbers))])}')
+        return
+    else:
+        numbers+=(number,)
+        print(numbers)
+    return get_numbers(numbers)
+
+
+def main():
+    get_numbers()
+
+
+if __name__ == '__main__':
+    main()
