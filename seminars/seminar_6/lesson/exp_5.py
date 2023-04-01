@@ -4,9 +4,13 @@
 """
 
 def prime_factors(n, divisor=2):
+    # if n%2==0 or n%3==0:
+    #
+    # else:
+    #     return 1,n
     if n == 1:
         return
-    if n % divisor == 0:
+    elif n % divisor == 0:
         print(divisor, end=" ")
         prime_factors(n//divisor, divisor)
     else:
@@ -15,7 +19,7 @@ def prime_factors(n, divisor=2):
 
 def main():
     n = int(input('Введите число: '))
-    prime_factors(n)
+    print(prime_factors(n))
 
 
 if __name__ == '__main__':
