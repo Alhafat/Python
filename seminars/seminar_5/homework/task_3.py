@@ -16,30 +16,27 @@
 """
 
 #
-# def get_numbers(numbers=None, temp=None):
-#     if numbers is None:
-#         numbers = int(input('введите любое число: ')),
-#         temp = 0
-#         return get_numbers(numbers, temp)
-#     number = int(input('введите любое число: '))
-#     numbers += (number,)
-#     if number == 0:
-#         print(numbers)
-#         return temp
-#     else:
-#         for i in numbers:
-#             if temp < i < max(numbers):
-#                 temp = i
-#         return get_numbers(numbers, temp)
-#
-#
-# def main():
-#     print(f'Второе по величине максимальное значение из введенных {get_numbers()}')
-#
-#
-# if __name__ == '__main__':
-#     main()
+def get_numbers(numbers=None, temp=None):
+    if numbers is None:
+        numbers = int(input('введите любое число: ')),
+        temp = 0
+        return get_numbers(numbers, temp)
+    number = int(input('введите любое число: '))
+    numbers += (number,)
+    if number == 0:
+        print(numbers)
+        return temp
+    else:
+        for i in numbers:
+            if temp < i < max(numbers):
+                temp = i
+        return get_numbers(numbers, temp)
 
 
-beast,dish="great blue heron", "garlic naan"
-print(beast[0], beast[-1] == dish[0], dish[-1])
+def main():
+    print(f'Второе по величине максимальное значение из введенных {get_numbers()}')
+
+
+if __name__ == '__main__':
+    main()
+
