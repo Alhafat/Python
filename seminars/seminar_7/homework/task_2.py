@@ -18,14 +18,15 @@
 6 12 18 24 30 36
 """
 
+
 def print_operation_table(operation, num_rows=6, num_columns=6):
     for i in range(1, num_rows + 1):
-        answer = []
-        for j in range(1, num_columns + 1):
-            answer.append(str(operation(i, j)))
-        print('  '.join(answer))
+        print(*[operation(i, j) for j in range(1, num_columns + 1)])
 
 
-print_operation_table(lambda x, y: x * y)
+def main():
+    call_func = eval(input('Введите название функции: '))
 
 
+if __name__ == '__main__':
+    main()
