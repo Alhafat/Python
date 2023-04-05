@@ -78,3 +78,12 @@ from re import sub
 
 
 # print(len([i for i in range(len(arr)) if i % 20 == 0 or i % 21 == 0]))
+#
+# from random import randint
+#
+# list = [randint(0, 20) for i in range(10)]
+# print(list)
+# band_min = int(input('Введите минимальный диапазон: '))
+# band_max = int(input('Введите максимальный диапазон: '))
+#
+# [print(f'Порядковый номер исходного списка: {list.index(i)}, значение: {i}') for i in list if band_min < i < band_max]
