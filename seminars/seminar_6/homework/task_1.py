@@ -12,7 +12,8 @@ def get_array(n, count, number):
     array = [number]
     while len(array) < n:
         array.append(array[-1] + count)
-    print(array)
+    print(*array)
+
 
 
 def main():
