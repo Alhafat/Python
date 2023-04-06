@@ -71,7 +71,7 @@ from re import sub
 # solution([-10, -9, -8, -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
 # # returns "-10--8,-6,-3-1,3-5,7-11,14,15,17-20"
 
-
+#
 # arr = [i for i in range(20, 241)]
 # test=[1 if i % 20 == 0 else 0 for i in arr if i % 20 == 0 or i % 21 == 0]
 # print(f'делится на 20 -> {test.count(1)}, делится на 21 -> {test.count(0)}')
@@ -79,11 +79,12 @@ from re import sub
 
 # print(len([i for i in range(len(arr)) if i % 20 == 0 or i % 21 == 0]))
 #
-# from random import randint
+from random import randint
+
 #
-# list = [randint(0, 20) for i in range(10)]
-# print(list)
-# band_min = int(input('Введите минимальный диапазон: '))
-# band_max = int(input('Введите максимальный диапазон: '))
-#
-# [print(f'Порядковый номер исходного списка: {list.index(i)}, значение: {i}') for i in list if band_min < i < band_max]
+list = [randint(0, 20) for i in range(10)]
+print(list)
+band_min = int(input('Введите минимальный диапазон: '))
+band_max = int(input('Введите максимальный диапазон: '))
+
+print([(list.index(i), i) for i in list if band_min < i < band_max])
