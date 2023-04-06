@@ -26,6 +26,7 @@ def print_operation_table(operation, num_rows=6, num_columns=6):
 
 def main():
     call_func = eval(input('Введите название функции: '))
+    # input('Введите название функции: ') == print_operation_table(lambda x, y: x * y)
 
 
 if __name__ == '__main__':
