@@ -14,12 +14,12 @@
 
 
 def answer(text):
-    print('Парам пам-пам') if not text.count('а') % 2 else print('Пам парам')
+    value = set(i.count('а') for i in text)
+    print('Парам пам-пам') if len(value) == 1 else print('Пам парам')
 
 
 def main():
-    text = [i for i in input('Введите выражение: ').split()]
-    print(text)
+    text = input('Введите выражение: ').split()
     answer(text)
 
 
