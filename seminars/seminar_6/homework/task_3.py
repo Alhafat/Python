@@ -9,6 +9,7 @@
 
 def result(number):
     print(True) if (number % 1000 // 10 - number % 10 * 2) % 7 == 0 else print(False)
+    # print((number % 1000 // 10 - number % 10 * 2) % 7 == 0)
 
 
 def main():
