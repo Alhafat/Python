@@ -129,9 +129,10 @@ import json
 
 
 def del_conact(contacts: list) -> dict:
+    show_on_screen(contacts)
     print('Какой контакт желаете удалить?')
     found = find_contact(contacts)
-    print(found)
+    # print(found)
     if found:
         show_on_screen(found)
         value = input('Подтвердите операцию удаления: Да/Нет\n>>>')
