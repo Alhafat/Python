@@ -129,12 +129,10 @@ import json
 
 
 def save_change_contact(contacts: list) -> dict:
-    first_name = input('Введите имя:\n>>> ')
-    second_name = input('Введите фамилию:\n>>> ')
-    found = list(filter(lambda el: first_name in el['first_name'] and second_name in el['second_name'], contacts))
+    found = find_contact(contacts)
     if found:
         show_on_screen(found)
-        print(found)
+        # print(found)
         value = input('Что желаете изменить?\n>>>')
         if value.lower() == 'имя':
             found[0]['first_name'] = input('Введите новое имя:\n>>> ')
@@ -142,7 +140,6 @@ def save_change_contact(contacts: list) -> dict:
             found[0]['second_name'] = input('Введите фамилию:\n>>> ')
         elif value.lower() == 'номер':
             found[0]['contacts'] = input('Введите новый номер телефона:\n>>>')
-
     else:
         print('Никого не нашли ;(')
         return {}
@@ -154,6 +151,7 @@ def find_contact(contacts: list) -> dict:
     found = list(filter(lambda el: first_name in el['first_name'] and second_name in el['second_name'], contacts))
     if found:
         show_on_screen(found)
+        return found
     else:
         print('Никого не нашли ;(')
         return {}
