@@ -84,149 +84,155 @@
 # if __name__ == '__main__':
 #     main()
 
-import json
-from cmd2 import Cmd
+# import json
+# from cmd2 import Cmd
+#
+# import os
+#
+#
+# class PhoneApp(Cmd):
+#     phonebook = list()
+#
+# def set_book(self, filename):
+#     self.filename = filename
+#     if os.path.exists(self.filename):
+#         self.import_phonebook()
+#
+# def import_phonebook(self) -> None:
+#     with open(self.filename, 'r') as fd:
+#         self.phonebook = json.load(fd)
+#         fd.close()
+#
+# def export_phonebook(self) -> None:
+#     with open(self.filename, 'w') as fd:
+#         json.dump(self.phonebook, fd)
+#         fd.close()
+#
+# def do_add_contact(self, _):
+#     self.phonebook.append(
+#         dict(
+#             firstname=input("Введите имя:"),
+#             lastname=input("Введите фамилию:"),
+#             numbers=input("Введите номер:")
+#         )
+#     )
+#
+# def print_contact(self, contact):
+#     print("\t".join([contact[i] for i in contact]))
+#
+# def do_search_contact(self, criteria):
+#     for contact in self.phonebook:
+# #         flag = False
 
 import os
+import json
 
 
-class PhoneApp(Cmd):
-    phonebook = list()
+def save_change_contact(contacts: list) -> dict:
+    first_name = input('Введите имя:\n>>> ')
+    second_name = input('Введите фамилию:\n>>> ')
+    found = list(filter(lambda el: first_name in el['first_name'] and second_name in el['second_name'], contacts))
+    if found:
+        show_on_screen(found)
+        print(found)
+        value = input('Что желаете изменить?\n>>>')
+        if value.lower() == 'имя':
+            found[0]['first_name'] = input('Введите новое имя:\n>>> ')
+        elif value.lower() == 'фамилию':
+            found[0]['second_name'] = input('Введите фамилию:\n>>> ')
+        elif value.lower() == 'номер':
+            found[0]['contacts'] = input('Введите новый номер телефона:\n>>>')
 
-def set_book(self, filename):
-    self.filename = filename
-    if os.path.exists(self.filename):
-        self.import_phonebook()
+    else:
+        print('Никого не нашли ;(')
+        return {}
 
-def import_phonebook(self) -> None:
-    with open(self.filename, 'r') as fd:
-        self.phonebook = json.load(fd)
-        fd.close()
 
-def export_phonebook(self) -> None:
-    with open(self.filename, 'w') as fd:
-        json.dump(self.phonebook, fd)
-        fd.close()
+def find_contact(contacts: list) -> dict:
+    first_name = input('Введите имя:\n>>> ')
+    second_name = input('Введите фамилию:\n>>> ')
+    found = list(filter(lambda el: first_name in el['first_name'] and second_name in el['second_name'], contacts))
+    if found:
+        show_on_screen(found)
+    else:
+        print('Никого не нашли ;(')
+        return {}
 
-def do_add_contact(self, _):
-    self.phonebook.append(
+
+def file_path(file_name='contact_list'):
+    return os.path.join(os.path.dirname(__file__), f'{file_name}.txt')
+
+
+def load_from_file():
+    path = file_path()
+    if os.stat(path).st_size:
+
+        with open(path, 'r', encoding='UTF-8') as file:
+            data = json.load(file)
+
+        return data
+    else:
+        return []
+
+
+def save_to_file(contact: list) -> None:
+    path = file_path()
+
+    with open(path, 'w', encoding='UTF-8') as file:
+        json.dump(contact, file, ensure_ascii=False)
+
+
+def show_on_screen(contacts: list) -> None:
+    decode_keys = dict(
+        first_name='Имя:',
+        second_name='Фамилия:',
+        contacts='Телефон:'
+    )
+    pretty_text = str()
+    for num, elem in enumerate(contacts, 1):
+        pretty_text += f'Контакт №{num}:\n'
+        pretty_text += '\n'.join(f'{decode_keys[k]} {v}' for k, v in elem.items())
+        pretty_text += '\n________\n'
+    print(pretty_text)
+
+
+def new_contact(contacts: list) -> None:
+    # Контактной информации может быть больше чем только телефон
+    contacts.append(
         dict(
-            firstname=input("Введите имя:"),
-            lastname=input("Введите фамилию:"),
-            numbers=input("Введите номер:")
+            first_name=input('Введите имя контакта:\n>>> '),
+            second_name=input('Введите фамилию контакта:\n>>> '),
+            contacts=input('Введите номер телефона:\n>>> ')
         )
     )
 
-def print_contact(self, contact):
-    print("\t".join([contact[i] for i in contact]))
 
-def do_search_contact(self, criteria):
-    for contact in self.phonebook:
-        flag = False
+def menu():
+    commands = [
+        'Показать все контакты',
+        'Найти контакт',
+        'Создать контакт',
+        'Изменить контакт'
+    ]
+    print('Укажите номер команды:')
+    print('\n'.join(f'{n}. {v}' for n, v in enumerate(commands, 1)))
+    choice = input('>>> ')
 
-# import os
-# import json
-#
-#
-# def find_contact(contacts: list) -> dict:
-#     what = input('Кого ищем?\n>>> ')
-#     found = list(filter(lambda el: what in el['first_name'] or what in el['second_name'], contacts))
-#     if found:
-#         show_on_screen(found)
-#     else:
-#         print('Никого не нашли ;(')
-#
-#
-# def file_path(file_name='contact_list'):
-#     return os.path.join(os.path.dirname(__file__), f'{file_name}.txt')
-#
-#
-# def load_from_file():
-#     path = file_path()
-#
-#     with open(path, 'r', encoding='UTF-8') as file:
-#         data = json.load(file)
-#
-#     return data
-#
-#
-# def save_to_file(contact: list) -> None:
-#     path = file_path()
-#
-#     with open(path, 'w', encoding='UTF-8') as file:
-#         json.dump(contact, file, ensure_ascii=False)
-#
-#
-# def show_on_screen(contacts: list) -> None:
-#     decode_keys = dict(
-#         first_name='Имя:',
-#         second_name='Фамилия:',
-#         contacts='Телефон:'
-#     )
-#     pretty_text = str()
-#     for num, elem in enumerate(contacts, 1):
-#         pretty_text += f'Контакт №{num}:\n'
-#         pretty_text += '\n'.join(f'{decode_keys[k]} {v}' for k, v in elem.items())
-#         pretty_text += '\n________\n'
-#     print(pretty_text)
-#
-#
-# def create_contact_info():
-#     pass
-#
-#
-# def new_contact(contacts: list) -> None:
-#     # Контактной информации может быть больше чем только телефон
-#     # contacts.append(
-#         dict(
-#             first_name=input('Введите имя контакта:\n>>> '),
-#             second_name=input('Введите фамилию контакта:\n>>> '),
-#             contacts=input('Введите номер телефона:\n>>> ')
-#         )
-#     # )
-#
-#
-# def menu():
-#     commands = [
-#         'Показать все контакты',
-#         'Найти контакт',
-#         'Создать контакт'
-#     ]
-#     print('Укажите номер команды:')
-#     print('\n'.join(f'{n}. {v}' for n, v in enumerate(commands, 1)))
-#     choice = input('>>> ')
-#
-#     try:
-#         choice = int(choice)
-#         if choice < 0 or len(commands) < choice:
-#             raise Exception('Такой команды пока нет ;(')
-#         choice -= 1
-#     except ValueError as ex:
-#         print('Я вас не понял, повторите...')
-#         menu()
-#     except Exception as ex:
-#         print(ex)
-#         menu()
-#     else:
-#         return choice
-#
-#
-# def main() -> None:
-#     print('Программа запущена...')
-#     data = load_from_file()
-#
-#     command = menu()
-#     if command == 0:
-#         show_on_screen(data)
-#     elif command == 1:
-#         find_contact(data)
-#     elif command == 2:
-#         new_contact(data)
-#
-#     save_to_file(data)
-#     print('Конец программы!')
-#
-#
+    try:
+        choice = int(choice)
+        if choice < 0 or len(commands) < choice:
+            raise Exception('Такой команды пока нет ;(')
+        choice -= 1
+    except ValueError as ex:
+        print('Я вас не понял, повторите...')
+        menu()
+    except Exception as ex:
+        print(ex)
+        menu()
+    else:
+        return choice
+
+
 # def tests():
 #     contact = dict(
 #         first_name='Иван',
@@ -250,7 +256,25 @@ def do_search_contact(self, criteria):
 #     )
 #     contacts = [contact, contact2, contact3, contact4]
 #     return contacts
-#
-#
-# if __name__ == '__main__':
-#     main()
+
+
+def main() -> None:
+    print('Программа запущена...')
+    data = load_from_file()
+
+    command = menu()
+    if command == 0:
+        show_on_screen(data)
+    elif command == 1:
+        find_contact(data)
+    elif command == 2:
+        # tests()
+        new_contact(data)
+    elif command == 3:
+        save_change_contact(data)
+    save_to_file(data)
+    print('Конец программы!')
+
+
+if __name__ == '__main__':
+    main()
