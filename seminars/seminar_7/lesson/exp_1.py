@@ -128,17 +128,39 @@ import os
 import json
 
 
+def del_conact(contacts: list) -> dict:
+    print('Какой контакт желаете удалить?')
+    found = find_contact(contacts)
+    print(found)
+    if found:
+        show_on_screen(found)
+        value = input('Подтвердите операцию удаления: Да/Нет\n>>>')
+        if value.lower() == 'да':
+            contacts.remove(found[0])
+            print('Удаление завершено.')
+            return {}
+        elif value.lower() == 'нет':
+            print('Команда удаления отменена.')
+            return {}
+        else:
+            print('Введена неверна команда.')
+            return {}
+    else:
+        print('Никого не нашли ;(')
+        return {}
+
+
 def save_change_contact(contacts: list) -> dict:
     found = find_contact(contacts)
     if found:
         show_on_screen(found)
         # print(found)
-        value = input('Что желаете изменить?\n>>>')
-        if value.lower() == 'имя':
-            found[0]['first_name'] = input('Введите новое имя:\n>>> ')
-        elif value.lower() == 'фамилию':
-            found[0]['second_name'] = input('Введите фамилию:\n>>> ')
-        elif value.lower() == 'номер':
+        value = input('Что желаете изменить?\n>>>').lower()
+        if value == 'имя':
+            found[0]['first_name'] = input('Введите новое имя:\n>>> ').upper()
+        elif value == 'фамилию':
+            found[0]['second_name'] = input('Введите фамилию:\n>>> ').upper()
+        elif value == 'номер':
             found[0]['contacts'] = input('Введите новый номер телефона:\n>>>')
     else:
         print('Никого не нашли ;(')
@@ -146,8 +168,8 @@ def save_change_contact(contacts: list) -> dict:
 
 
 def find_contact(contacts: list) -> dict:
-    first_name = input('Введите имя:\n>>> ')
-    second_name = input('Введите фамилию:\n>>> ')
+    first_name = input('Введите имя:\n>>> ').upper()
+    second_name = input('Введите фамилию:\n>>> ').upper()
     found = list(filter(lambda el: first_name in el['first_name'] and second_name in el['second_name'], contacts))
     if found:
         show_on_screen(found)
@@ -198,9 +220,9 @@ def new_contact(contacts: list) -> None:
     # Контактной информации может быть больше чем только телефон
     contacts.append(
         dict(
-            first_name=input('Введите имя контакта:\n>>> '),
-            second_name=input('Введите фамилию контакта:\n>>> '),
-            contacts=input('Введите номер телефона:\n>>> ')
+            first_name=input('Введите имя контакта:\n>>> ').upper(),
+            second_name=input('Введите фамилию контакта:\n>>> ').upper(),
+            contacts=input('Введите номер телефона:\n>>> ').upper()
         )
     )
 
@@ -210,7 +232,8 @@ def menu():
         'Показать все контакты',
         'Найти контакт',
         'Создать контакт',
-        'Изменить контакт'
+        'Изменить контакт',
+        'Удаление контакта'
     ]
     print('Укажите номер команды:')
     print('\n'.join(f'{n}. {v}' for n, v in enumerate(commands, 1)))
@@ -270,6 +293,8 @@ def main() -> None:
         new_contact(data)
     elif command == 3:
         save_change_contact(data)
+    elif command == 4:
+        del_conact(data)
     save_to_file(data)
     print('Конец программы!')
 
