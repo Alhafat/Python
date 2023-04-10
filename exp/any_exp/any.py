@@ -79,12 +79,44 @@ from re import sub
 
 # print(len([i for i in range(len(arr)) if i % 20 == 0 or i % 21 == 0]))
 #
-from random import randint
+# from random import randint
+#
+# #
+# list = [randint(0, 20) for i in range(10)]
+# print(list)
+# band_min = int(input('Введите минимальный диапазон: '))
+# band_max = int(input('Введите максимальный диапазон: '))
+#
+# print([(list.index(i), i) for i in list if band_min < i < band_max])
+#
+# """
+# Дана строка s. Вы должны вернуть другую строку таким образом,
+# чтобы четноиндексированные и нечетноиндексированные символы
+# s были сгруппированы, а группы разделены пробелами (см. пример ниже).
+#
+# Примечание:
+# 0 считается четным показателем. Все входные строки допустимы без пробелов"""
 
 #
-list = [randint(0, 20) for i in range(10)]
-print(list)
-band_min = int(input('Введите минимальный диапазон: '))
-band_max = int(input('Введите максимальный диапазон: '))
+# def sort_my_string(s: str):
+#     s = 'CodeWars'
+#     text = ''.join([i for i in s if s.index(i) % 2]) + ' ' + ''.join([i for i in s if not s.index(i) % 2])
+#     print(text)
+#
+#
+# sort_my_string('string')
 
-print([(list.index(i), i) for i in list if band_min < i < band_max])
+#
+# def sort_my_string(s: str) -> str:
+#     even = [i + 1 for i in range(0, len(s)) if i % 2 == 0]
+#     print(even)
+#     # i.append(even)
+#     return even
+#
+#     odd = [i + 2 for i in range(1, len(str))]
+#     i.append(odd)
+#     return odd
+#     print(even + odd)
+#
+#
+# sort_my_string('some_string')
