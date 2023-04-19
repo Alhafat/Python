@@ -120,3 +120,24 @@ from re import sub
 #
 #
 # sort_my_string('some_string')
+
+array = [{"фамилия": "Иванов", "оценка": "5", "предмет": "Математика"},
+         {"фамилия": "Петрова", "оценка": "4", "предмет": "Информатика"},
+         {"фамилия": "Краснов", "оценка": "5", "предмет": "Физика"}]
+text_1 = ["Студент", "получил", "по предмету"] * len(array)
+text = [array.pop(0).values() for i in range(len(array))]
+text_array = []
+for i in range(len(text)):
+    [text_array.append(j) for j in text[i]]
+value = ""
+count = 0
+while len(text_1) != 0:
+    if count == 3:
+        print(value)
+        value = ""
+        count = 0
+    else:
+        value += text_1.pop(0) + " " + text_array.pop(0) + " "
+        count += 1
+else:
+    print(value)
