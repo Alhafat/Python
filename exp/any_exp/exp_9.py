@@ -1,6 +1,9 @@
 def main():
     name = input('Yours name: ')
-    print('Hello, ' + name)
+    if name.isalpha():
+        print('Hello, ', name)
+    else:
+        main()
 
 
 if __name__ == '__main__':
