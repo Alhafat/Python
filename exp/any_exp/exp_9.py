@@ -1,7 +1,7 @@
 def main():
-    name = input('Yours name: ')
+    name = input()
     if name.isalpha():
-        print('Yours name: Hello, ', name)
+        print('Hello, ', name)
     else:
         main()
 
